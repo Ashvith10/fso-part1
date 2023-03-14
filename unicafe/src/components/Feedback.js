@@ -1,22 +1,14 @@
+import Button from './Button'
+
 const Feedback = ({incrementGood, incrementNeutral, incrementBad}) => {
     return (
         <div>
             <h1>give feedback</h1>
-            <input
-                type="button"
-                value="good"
-                onClick={incrementGood}
-            />
-            <input
-                type="button"
-                value="neutral"
-                onClick= {incrementNeutral}
-            />
-            <input
-                type="button"
-                value="bad"
-                onClick={incrementBad}
-            />
+            <div>
+                <Button value={"good"} handleClick={incrementGood} />
+                <Button value={"neutral"} handleClick={incrementNeutral} />
+                <Button value={"bad"} handleClick={incrementBad} />
+            </div>
         </div>
     )
 }
