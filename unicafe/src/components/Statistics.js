@@ -2,7 +2,7 @@ import StatisticLine from './StatisticLine'
 
 const Statistics = ({good, neutral, bad}) => {
     const all = good + neutral + bad
-    const average = (good - bad) / 9;
+    const average = (good - bad) / all;
     const positive = good * 100 / all;
 
     return (
@@ -12,14 +12,16 @@ const Statistics = ({good, neutral, bad}) => {
                 (all === 0)
                 ? (<div>No feedback given</div>)
                 : (
-                    <div>
-                        <StatisticLine text="good" value={good} />
-                        <StatisticLine text="neutral" value={neutral} />
-                        <StatisticLine text="bad" value={bad} />
-                        <StatisticLine text="all" value={all} />
-                        <StatisticLine text="average" value={average} />
-                        <StatisticLine text="positive" value={`${positive} %`} />
-                    </div>
+                    <table>
+                        <tbody>
+                            <StatisticLine text="good" value={good} />
+                            <StatisticLine text="neutral" value={neutral} />
+                            <StatisticLine text="bad" value={bad} />
+                            <StatisticLine text="all" value={all} />
+                            <StatisticLine text="average" value={average.toFixed(1)} />
+                            <StatisticLine text="positive" value={`${positive.toFixed(1)} %`} />
+                        </tbody>
+                    </table>
                 )
             }
         </div>
